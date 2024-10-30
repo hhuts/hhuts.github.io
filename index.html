@@ -3,7 +3,7 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>计算开学第几周</title>  
+    <title>计算开学第几周（上取整）</title>  
     <style>  
         body {  
             font-family: Arial, sans-serif;  
@@ -18,7 +18,7 @@
     </style>  
 </head>  
 <body>  
-    <h1>计算今天是2024年9月2日开学以来的第几周</h1>  
+    <h1>计算今天是2024年9月2日开学以来的第几周（上取整）</h1>  
     <div id="weekNumber"></div>  
   
     <script>  
@@ -28,22 +28,15 @@
         // 获取当前日期  
         const currentDate = new Date();  
   
-        // 计算两个日期之间的毫秒差  
-        const timeDifference = currentDate - startOfSchoolDate;  
+        // 计算两个日期之间的天数差  
+        const daysDifference = Math.floor((currentDate - startOfSchoolDate) / (1000 * 60 * 60 * 24));  
   
-        // 将毫秒差转换为天数  
-        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));  
-  
-        // 将天数差异转换为周数（四舍五入到最接近的整数）  
-        const weeksDifference = Math.round(daysDifference / 7);  
-  
-        // 考虑到开学日可能是那一周的第一天或之前，需要调整周数计算逻辑  
-        // 如果开学日不是周一，我们需要根据开学日是那一周的哪一天来调整周数  
-        // 但为了简化，这里我们假设开学日总是周一，并且直接显示计算结果  
-        // 如果不是周一，你可能需要添加额外的逻辑来处理这种情况  
+        // 计算周数并上取整  
+        // 注意：这里我们不需要对开学日期是周几进行特殊处理，因为上取整会自动处理部分周的情况  
+        const weeksDifference = Math.ceil(daysDifference / 7);  
   
         // 将结果输出到网页上  
-        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周`;  
+        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周（上取整）`;  
     </script>  
 </body>  
 </html>
