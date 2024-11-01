@@ -21,8 +21,7 @@
         }  
     </style>  
 </head>  
-<body>  
-    <h1>计算今天是2024年9月2日开学以来的第几周（上取整）</h1>  
+<body>    
     <div id="weekNumber"></div>  
     <div id="container"></div> <!-- 将container div移动到正确的位置 -->  
   
@@ -43,7 +42,7 @@
         const weeksDifference = Math.ceil(daysDifference / 7);  
   
         // 将结果输出到网页上  
-        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周（上取整）`;  
+        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周`;  
     </script>  
   
     <!-- 加载runner.js并初始化 -->  
