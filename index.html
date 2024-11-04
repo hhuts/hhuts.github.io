@@ -1,41 +1,54 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计算开学第几周（上取整）</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #weekNumber {
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-        }
-        #container {
-            margin-top: 40px;
-        }
-    </style>
-</head>
-<body>
-    <div id="weekNumber"></div>
-    <div id="container"></div>
-    <div id="leaderboard">
-        <h2>排行榜</h2>
-        <ul id="scoreList"></ul>
-    </div>
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>计算开学第几周（上取整）</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            margin-top: 50px;  
+        }  
+        #weekNumber {  
+            font-size: 24px;  
+            color: #333;  
+            margin-top: 20px;  
+        }  
+        #container {  
+            /* 可选：为container添加一些样式，以便更好地展示runner.js的内容 */  
+            margin-top: 40px;  
+        }  
+    </style>  
+</head>  
+<body>    
+    <div id="weekNumber"></div>  
+    <div id="container"></div> <!-- 将container div移动到正确的位置 -->  
   
-    <script>
-        const startOfSchoolDate = new Date('2024-09-02');
-        const currentDate = new Date();
-        const daysDifference = Math.floor((currentDate - startOfSchoolDate) / (1000 * 60 * 60 * 24));
-        const weeksDifference = Math.ceil(daysDifference / 7);
-        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周`;
-    </script>
-
-    <script src="runner.js"></script>
-</body>
+    <script>  
+        // 定义开学日期  
+        const startOfSchoolDate = new Date('2024-09-02');  
+  
+        // 获取当前日期（这里会自动获取页面加载时的日期）  
+        const currentDate = new Date();  
+  
+        // 为了测试，您可以将currentDate设置为未来的某个日期  
+        // 例如：const currentDate = new Date('2024-09-15'); // 这将模拟2024年9月15日的计算  
+  
+        // 计算两个日期之间的天数差  
+        const daysDifference = Math.floor((currentDate - startOfSchoolDate) / (1000 * 60 * 60 * 24));  
+  
+        // 计算周数并上取整  
+        const weeksDifference = Math.ceil(daysDifference / 7);  
+  
+        // 将结果输出到网页上  
+        document.getElementById('weekNumber').innerText = `今天是开学以来的第 ${weeksDifference} 周`;  
+    </script>  
+  
+    <!-- 加载runner.js并初始化 -->  
+    <script src="runner.js"></script>  
+    <script>  
+        initRunner('#container'); // 确保runner.js已正确加载并包含initRunner函数  
+    </script>  
+</body>  
 </html>
